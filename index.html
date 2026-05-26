@@ -339,6 +339,29 @@
       line-height: 1.65;
     }
 
+    .session-desc.collapsed {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .session-toggle {
+      margin-top: 10px;
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cardinal);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .session-toggle:hover { color: var(--cardinal-dark); }
+
     .session-speaker {
       margin-top: 16px;
       font-size: 14px;
@@ -537,7 +560,14 @@
         </div>
 
         <div class="speaker-card">
-          <img src="ihyun-nam.png" alt="Ihyun Nam" class="speaker-photo" />
+          <img src="jeff-strnad.jpg" alt="Jeff Strnad" class="speaker-photo" />
+          <div class="speaker-name">Jeff Strnad</div>
+          <div class="speaker-title">Charles A. Beardsley Professor of Law</div>
+          <div class="speaker-affil">Stanford Law School</div>
+        </div>
+
+        <div class="speaker-card">
+          <img src="IhyunNam_1.jpg" alt="Ihyun Nam" class="speaker-photo" />
           <div class="speaker-name">Ihyun Nam</div>
           <div class="speaker-title">Ph.D. Student, Computer Science</div>
           <div class="speaker-affil">Stanford University</div>
@@ -561,8 +591,9 @@
           <div class="session-content">
             <div class="session-number">Opening Research Presentation</div>
             <h3 class="session-title">Passlog: Authentication Logging with Public State</h3>
-            <p class="session-desc">Details to follow.</p>
+            <p class="session-desc">Authentication logging makes it possible for a user to fetch a comprehensive list of all logins made to her accounts. This helps users detect account compromise quickly to minimize damage and understand exactly where and when their credentials were used: an increasingly important ability as AI agents act on users' behalf. Unfortunately, existing systems provide authentication logging at the expense of allowing the log provider to learn sensitive information or tamper with authentication logs. We present Passlog, a privacy-preserving authentication logging system in which one or more parties run the log service, and anyone can unilaterally audit the log service to prove wrongdoing. A novel property of Passlog is that the log record state can be public without revealing any private information. This makes Passlog a compelling new application domain for the blockchain technology and a path to turn a historically privacy-invasive system into a private and publicly verifiable service. The challenge is to hide the identity of users and web services from the log service while still allowing the log service to enforce that every authentication is correctly recorded. We design, implement, and evaluate Passlog to support both a centralized and decentralized log service.</p>
             <div class="session-speaker">Ihyun Nam &mdash; Stanford University</div>
+            <div class="session-speaker">David Mazières &mdash; Stanford University</div>
             <div class="session-speaker" style="color:var(--cool-grey); font-weight:400;">Moderator: TBD</div>
           </div>
         </div>
@@ -571,9 +602,11 @@
           <div class="session-time">Session 2</div>
           <div class="session-content">
             <div class="session-number">Panel Discussion</div>
-            <h3 class="session-title">Intelligent Money: The Convergence of AI and Decentralized Finance</h3>
-            <p class="session-desc">Details to follow.</p>
-            <div class="session-speaker" style="color:var(--cool-grey); font-weight:400;">Panelists: TBD &nbsp;&mdash;&nbsp; Moderator: TBD</div>
+            <h3 class="session-title">AI in Open Systems: Native Participation, Verifiability, and the Future of Autonomous Finance</h3>
+            <p class="session-desc">As AI systems become increasingly autonomous, they are beginning to challenge assumptions embedded in today's financial, legal, and regulatory frameworks. Decentralized financial networks offer a unique environment in which AI agents can hold assets, transact, and operate without traditional intermediaries, while providing transparent and auditable records of their actions. Could permissionless financial systems become the native infrastructure for autonomous AI, and can on-chain verifiability help address longstanding challenges of trust and accountability in AI? This panel will examine the emerging intersection of artificial intelligence and decentralized finance and its implications for the future of economic systems.</p>
+            <div class="session-speaker">Jeff Strnad &mdash; Stanford Law School</div>
+            <div class="session-speaker" style="color:var(--cool-grey); font-weight:400;">Additional Panelists: TBD</div>
+            <div class="session-speaker" style="color:var(--cool-grey); font-weight:400;">Moderator: Lisa Nestor &mdash; Stanford FDCI</div>
           </div>
         </div>
 
@@ -591,11 +624,9 @@
         <div class="session-item">
           <div class="session-time">Closing</div>
           <div class="session-content">
-            <div class="session-number">Roundtable &amp; Networking</div>
-            <h3 class="session-title">The Next Frontier: Research Horizons for Digital Currency</h3>
-            <p class="session-desc">A cross-sector roundtable with industry experts and practitioners exploring the most pressing open questions in digital currency research. The discussion will be followed by a networking reception.</p>
-            <div class="session-speaker">David Mazières &mdash; Stanford University</div>
-            <div class="session-speaker" style="color:var(--cool-grey); font-weight:400;">Moderator: Lisa Nestor &mdash; Stanford FDCI</div>
+            <div class="session-number">Networking Reception</div>
+            <h3 class="session-title">The Next Frontier: Networking Reception</h3>
+            <p class="session-desc">The summit closes with an open reception bringing together the researchers who ask the hard questions and the practitioners who focus on execution. Come find your counterpart — whether you build, invest, regulate, or study — and dig into the open questions shaping the future of digital currency and decentralized finance.</p>
           </div>
         </div>
 
@@ -663,6 +694,22 @@
     <span class="footer-wordmark">Stanford Future of Digital Currency Initiative</span>
     <span class="footer-copy">&copy; 2026 Stanford University</span>
   </footer>
+
+  <script>
+    document.querySelectorAll('.session-desc').forEach(desc => {
+      desc.classList.add('collapsed');
+      if (desc.scrollHeight > desc.clientHeight) {
+        const btn = document.createElement('button');
+        btn.className = 'session-toggle';
+        btn.textContent = 'Read more';
+        btn.addEventListener('click', () => {
+          const isCollapsed = desc.classList.toggle('collapsed');
+          btn.textContent = isCollapsed ? 'Read more' : 'Show less';
+        });
+        desc.insertAdjacentElement('afterend', btn);
+      }
+    });
+  </script>
 
 </body>
 </html>
