@@ -447,6 +447,28 @@
       color: rgba(255,255,255,0.45);
     }
 
+    .sbc-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      padding: 14px 22px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+    }
+    .sbc-callout-icon { font-size: 17px; flex-shrink: 0; }
+    .sbc-callout a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .sbc-callout a:hover { color: var(--sky); }
+
     /* ── FOOTER ── */
     footer {
       background: var(--black);
@@ -564,6 +586,13 @@
           <div class="speaker-name">Ihyun Nam</div>
           <div class="speaker-title">Ph.D. Student, Computer Science</div>
           <div class="speaker-affil">Stanford University</div>
+        </div>
+
+        <div class="speaker-card">
+          <img src="Paul Wong 22.jpg" alt="Paul Wong" class="speaker-photo" />
+          <div class="speaker-name">Paul Wong</div>
+          <div class="speaker-title">Director, Strategic Impact</div>
+          <div class="speaker-affil">Stellar Development Foundation</div>
         </div>
 
         <div class="speaker-card">
@@ -693,6 +722,11 @@
       <p class="section-intro">Space is limited. Complete the form below to request an invitation to the FDCI Stanford Summit 2026.</p>
       <a href="https://forms.cloud.microsoft/r/Y4jw5N6VbG" class="reg-cta">Register Now</a>
       <p class="reg-note">Registration details and confirmation to follow.</p>
+
+      <div class="sbc-callout">
+        <span class="sbc-callout-icon">📅</span>
+        <span>Planning to attend? Check out the <a href="https://www.sbc-conference.com/2026/" target="_blank" rel="noopener">Science of Blockchain Conference</a> at Stanford, July 27–29.</span>
+      </div>
     </div>
   </section>
 
